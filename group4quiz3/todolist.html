@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>My to do list</title>
+	<!--Bootstrap CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<!-- JS library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<!-- Bootstrap JS -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	<!-- my css -->
+	<link rel="stylesheet" href="main.css" />
+
+</head>
+
+<body>
+
+<div class= "container">
+	<div class="row">
+			<h1 class="title">Group 4 To Do List</h1>
+		<div class="col-md-6 col-md-12">
+			<section class= "input">
+				<form id="new-task-form">
+					<div class="form-group">
+					<label for="usr">Task Title:</label>
+						<input type="text" class="form-control" id="title" placeholder="Enter task title" required/>
+				</div>
+				<div class="form-group">
+				<label for="usr">Task Name:</label>
+					<input type="text" class="form-control" id="new_task" placeholder="Enter new task name" required />
+				</div>
+				<div class="form-group">
+						<label for="usr">Task Date:</label>
+					  <input type="text" class="form-control datepicker" id="date" value="2000-05-05" placeholder="Select Date"/>
+				</div>
+					<input type="submit" id="button" value="Add task" />
+				</form>
+			</section>
+			</div>
+			<div class="col-md-6 col-md-12">
+			<section id="display_task">
+
+			</section>
+			</div>
+		</div>
+</div>
+	<script src="main.js" > </script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+
+</body>
+</html>
