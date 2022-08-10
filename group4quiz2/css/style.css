@@ -1,0 +1,167 @@
+
+body {
+ margin: 0;
+ padding: 0;
+}
+* {
+ font-family: 'Righteous', cursive;/*applies to all body*/
+/* background: #141111;*/
+}
+
+h1{
+	font-size: 2.5rem;
+	font-weight: 500;
+	text-align:center;
+	color:#000;
+
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+ol, ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/*-- start editing from here --*/
+a {
+  text-decoration: none;
+}
+
+.txt-rt {
+  text-align: right;
+}
+
+/* text align right */
+.txt-lt {
+  text-align: left;
+}
+
+/* text align left */
+.txt-center {
+  text-align: center;
+}
+
+/* text align center */
+.float-rt {
+  float: right;
+}
+
+/* float right */
+.float-lt {
+  float: left;
+}
+
+/* float left */
+.clear {
+  clear: both;
+}
+
+/* clear float */
+.pos-relative {
+  position: relative;
+}
+
+/* Position Relative */
+.pos-absolute {
+  position: absolute;
+}
+
+/* Position Absolute */
+.vertical-base {
+  vertical-align: baseline;
+}
+
+/* vertical align baseline */
+.vertical-top {
+  vertical-align: top;
+}
+
+/* vertical align top */
+nav.vertical ul li {
+  display: block;
+}
+
+/* vertical menu */
+nav.horizontal ul li {
+  display: inline-block;
+}
+
+/* horizontal menu */
+img {
+  max-width: 100%;
+}
+
+/*-- end reset --*/
+body {
+  background: #76b852;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #76b852, #8DC26F);
+  background: -moz-linear-gradient(to top, #76b852, #8DC26F);
+  background: -o-linear-gradient(to top, #76b852, #8DC26F);
+  background: linear-gradient(to top, #033b11, #c26f74);
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1 {
+  font-size: 3em;
+  text-align: center;
+  color: #fff;
+  font-weight: 100;
+  text-transform: capitalize;
+  letter-spacing: 4px;
+  font-family: 'Roboto', sans-serif;
+}
+
+/*-- main --*/
+.main-w3layouts {
+  padding: 3em 0 1em;
+}
+
+.main-agileinfo {
+  width: 35%;
+  margin: 3em auto;
+  background: rgba(0, 0, 0, 0.18);
+  background-size: cover;
+}
+
+.agileits-top {
+  padding: 3em;
+}
+
+input[type="text"], input[type="email"], input[type="password"] {
+  font-size: 0.9em;
+  color: #fff;
+  font-weight: 100;
+  width: 94.5%;
+  display: block;
+  border: none;
+  padding: 0.8em;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  color: #000;
+  font-family: 'Roboto', sans-serif;
+}
+
+input.email, input.text.w3lpass {
+  margin: 2em 0;
+}
