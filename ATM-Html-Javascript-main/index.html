@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Atm</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<style>
+		html, body{font-family: monospace; user-select: none;}
+		.btn{padding:15px 30px; margin:4px; border-radius: 7px; border:none;background:#e0e0e0;}
+		.btnBig{padding:28px 0; width: 150px}
+		.gray{color:gray;}
+		#btnAccept{background-color: #4fa552; color: white;}
+		#btnCancel{background-color: #d62828; color: white;}
+		#screen{width: 340px; height:280px;padding:30px;background:skyblue;color:white;font-size:14px;}
+		.hide{display:none;}
+		.opacity0{opacity: 0;}
+		.absoluteTopLeft{position:absolute;top:0; left:0;}
+		.posRelative{position: relative;}
+		.smallText{font-size: 12px;}
+		.bigText{font-size: 40px;padding:5px;display:inline-block;font-weight: bold;}
+		.bigText2{font-size: 28px;padding:5px;display:inline-block;font-weight: bold;}
+		#moneyAvailableContainer{background-color: #fff; color:#000; padding: 5px 10px; margin:5px; border-radius: 10px;}
+		#screen p{background:white;padding:10px;color:black;border-radius: 10px}
+		.dots{font-size:13px;letter-spacing: -3px;line-height: 12px;color:#4fa552;}
+		.badge{background-color: gold; padding: 2px 5px; border-radius: 5px;}
+		.paddingLeft{padding-left: 40px;}
+		.marginTop{margin-top:40px;}
+		.marginTop2{margin-top:5px;}
+		#atm{border:solid 5px skyblue;border-radius: 10px;}
+		/*.innerData, .innerData td{border:solid 1px #e0e0e0;padding: 2px;}*/
+		.innerData{border:solid 1px #e0e0e0; border-spacing:0;border-collapse:none; border-radius: 10px;}
+		.innerData td{border:solid 1px #e0e0e0; padding:2px 5px; }
+		.dotsContainer{padding:6px !important;color:black;}
+		#atmLeftButtons{padding:5px 0 5px 0px;}
+		#atmRightButtons{padding:5px 0px 5px 0;}
+		#dash{height:27px;padding-left:5px;}
+		.moneyBadge{background:#4fa552;color:white; border:solid 1px #388d3c; width:32px;padding:4px 0 2px;margin:1px;display:inline-block;font-size:10px;font-weight: bold;font-family: sans-serif;}
+		h3{font-size: 17px;}
+	</style>
+</head>
+<body>
+	<br><br>
+	<table align="center">
+		<tr>
+			<td>
+
+				<table align="center" id="atm">
+					<tr>
+						<td align="center" valign="middle" colspan="2">
+							<table>
+								<tr>
+									<td id="screen" align="center" valign="middle" class="posRelative">
+
+										<div id="screen_home" class="screen_container hide">
+											<p>
+												How much would you like to Withdraw? 
+												<br>
+												<small class="gray">(You can use the keyboard)</small>
+												<br>
+												<b class="bigText">$<span id="input">0</span><img src="assets/dash_black.gif" id="dash" alt=""></b>
+											</p>
+										</div>
+
+										<div id="screen_result" class="screen_container hide">
+											<p>
+												<span class="bigText2">$<span id="extracted"></span> withdrawn successfully</span>
+												<br>
+												<br>
+												<small>(Press Esc or Enter)</small>
+											</p>
+										</div>
+
+										<div id="screen_confirm" class="screen_container hide">
+											<p>
+												<span class="bigText2">I only have $<span id="confirmOnlyAvailable"></span>. Withdraw?</span>
+												<br>
+												<br>
+												<small>(Press Esc or Enter)</small>
+											</p>
+										</div>
+
+										<div id="screen_nomoney" class="screen_container hide">
+											<p>
+												<span class="bigText2">I'm a poor ATM :(</span>
+												<br>
+												<br>
+												<small>(Press Esc or Enter)</small>
+											</p>
+										</div>
+
+									</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+					<tr>
+						<td align="right" valign="top" id="atmLeftButtons">
+							<button id="btn1" class="btn">1</button><button id="btn2" class="btn">2</button><button id="btn3" class="btn">3</button>
+							<br>
+							<button id="btn4" class="btn">4</button><button id="btn5" class="btn">5</button><button id="btn6" class="btn">6</button>
+							<br>
+							<button id="btn7" class="btn">7</button><button id="btn8" class="btn">8</button><button id="btn9" class="btn">9</button>
+							<br>
+							<button id="btn0" class="btn">0</button><button class="btn opacity0" disabled="">0</button>
+						</td>
+						<td align="left" valign="top" id="atmRightButtons">
+							<button id="btnAccept" class="btn btnBig">Accept <small>(Enter)</small></button>
+							<br>
+							<button id="btnCancel" class="btn btnBig">Cancel <small>(Esc)</small></button>
+						</td>
+					</tr>
+				</table>
+
+			</td>
+
+			<td valign="top" class="paddingLeft">
+
+				<table class="innerData" align="center" width="350" id="atmConsoleContainer" border="0">
+					<tr align="center">
+						<td colspan="2"><h3>Money on ATM <span class="badge">$<b id="balanceBadge">0</b></span></h3></td>
+					</tr>
+					<!--
+					<tr>
+						<td align="center" width="50">$1</td>
+						<td class="dots" id="atmDotsFor1">● ● ● ● ● ● ● ● ● </td>
+					</tr>
+					<tr>
+						<td align="center">$5</td>
+						<td class="dots" id="atmDotsFor5">● ● ● ● ● ● ● ● ● </td>
+					</tr>
+					-->
+					
+				</table>
+
+
+				<table class="innerData marginTop" align="center" width="350" id="extractedConsoleContainer">
+					<tr align="center">
+						<td colspan="100"><h3>Money withdrawn <span class="badge">$<b id="extractedBadge">0</b></span></h3></td>
+					</tr>
+					<!--
+					<tr>
+						<td align="center" width="50">$1</td>
+						<td class="dots" id="extractedDotsFor1">● ● ● ● ● ● ● ● ● </td>
+					</tr>
+					<tr>
+						<td align="center">$5</td>
+						<td class="dots" id="extractedDotsFor5">● ● ● ● ● ● ● ● ● </td>
+					</tr>
+					-->
+				</table>
+
+				<table align="center" class="marginTop2">
+					<tr>
+						<td>
+							<button id="reload"><small>Reload ATM</small></button>
+						</td>
+					</tr>
+				</table>
+
+
+			</td>
+		</tr>
+	</table>
+	
+
+	<script type="text/javascript" src="assets/Interface.js"></script>
+	<script type="text/javascript" src="assets/ATM.js"></script>
+	<script type="text/javascript" src="assets/code.js"></script>
+	
+</body>
+</html>
